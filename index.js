@@ -128,7 +128,7 @@ const ScrollableTabView = createReactClass({
   },
 
   handlePageChange(pageNumber, childrenLength = this._children().length) {
-    if (I18nManager.isRTL && Platform.OS === 'android') {
+    if (I18nManager.isRTL ) {
       this.goToPage((childrenLength - 1) - pageNumber);
     } else {
       this.goToPage(pageNumber);
@@ -291,7 +291,7 @@ const ScrollableTabView = createReactClass({
       </SceneComponent>;
     });
 
-    if (I18nManager.isRTL && Platform.OS === 'android') {
+    if (I18nManager.isRTL ) {
       return scenes.reverse();
     } else {
       return scenes;
@@ -312,7 +312,7 @@ const ScrollableTabView = createReactClass({
       localNextPage = nextPage.nativeEvent.position;
     }
 
-    if (I18nManager.isRTL && Platform.OS === 'android') {
+    if (I18nManager.isRTL ) {
       localNextPage = (this._children().length - 1) - localNextPage;
     }
 
@@ -342,7 +342,7 @@ const ScrollableTabView = createReactClass({
     } else {
       const { position, offset, } = e.nativeEvent;
 
-      if (I18nManager.isRTL && Platform.OS === 'android') {
+      if (I18nManager.isRTL ) {
         this.props.onScroll((this._children().length - 1) - (position + offset));
       } else {
         this.props.onScroll(position + offset);
@@ -378,7 +378,7 @@ const ScrollableTabView = createReactClass({
 
   _getScrollableContentInitialPage() {
     const { initialPage } = this.props;
-    if (I18nManager.isRTL && Platform.OS === 'android') {
+    if (I18nManager.isRTL ) {
       return (this._children().length - 1) - (initialPage || 0);
     } else {
       return initialPage;
@@ -418,7 +418,7 @@ const ScrollableTabView = createReactClass({
         [this.props.tabBarPosition === 'overlayTop' ? 'top' : 'bottom']: 0,
       };
     }
-    if (I18nManager.isRTL && Platform.OS === 'android') {
+    if (I18nManager.isRTL ) {
       const { addListener, removeListener, removeAllListeners } = tabBarProps.scrollValue;
 
       tabBarProps.scrollValue = tabBarProps.scrollValue.interpolate({
